@@ -10,7 +10,13 @@ This list of tools is used to automate activities during penetration testing
 - dirbuster
 - [gobuster](https://github.com/OJ/gobuster)
 
+## code analyzing
+- [sourcemapper](https://github.com/denandz/sourcemapper)
+
 ## SSL/TLS
 - [sslscan](https://github.com/rbsec/sslscan)
 - [ssltest](https://github.com/drwetter/testssl.sh)
 - [sslyze](https://github.com/nabla-c0d3/sslyze)
+
+## Payloads
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
