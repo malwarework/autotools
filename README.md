@@ -20,3 +20,7 @@ This list of tools is used to automate activities during penetration testing
 
 ## Payloads
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+- [GTFOBINS](https://gtfobins.github.io/)
+
+## SMB enum
+- enum4linux
