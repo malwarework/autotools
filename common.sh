@@ -71,13 +71,13 @@ nikto --host $IP --ssl -evasion 1
 dnsrecon -d youdomain.com
 =============================================================================================================
 ===gobuster directory
-gobuster dir -u $URL -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt -l -k -t 30
+gobuster dir -u $URL -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt -k -t 30 --no-error
 
 ===gobuster files
-gobuster dir -u $URL -w /opt/SecLists/Discovery/Web-Content/raft-medium-files.txt -l -k -t 30
+gobuster dir -u $URL -w /opt/SecLists/Discovery/Web-Content/raft-medium-files.txt -k -t 30 --no-error
 txt
 ===gobuster for SubDomain bruteforcing
-gobuster dns -d $DOMAIN -w /opt/SecLists/Discovery/DNS/subdomains-top1million-11000 -t 30
+gobuster dns -d $DOMAIN -w /opt/SecLists/Discovery/DNS/subdomains-top1million-11000 -t 30 --no-error
 "Just make sure that any DNS name you found to an in-scope address before you test it"
 =============================================================================================================
 ===Extract IPs from a text files
