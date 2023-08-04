@@ -93,16 +93,16 @@ wfuzz -c -z file,/usr/share/wordlists/Fuzzing/yeah.txt "$URL"
 wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/burp-parameter-names.txt "$URL"
 
 ===Authenticated Fuzzing Directories
-wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-medium-directories --hc 404 -d "PARAM=value" "$URL"
+wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt --hc 404 -d "PARAM=value" "$URL"
 
 ===Authenticated File Fuzzing
 wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-medium-words.txt --hc 404 -d "PARAM=value" "$URL"
 
 ===FUZZ Directories
-wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-large-directories --hc 404 "$URL"
+wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-large-directories.txt --hc 404 "$URL"
 
 ===FUZZ Files
-wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-large-files --hc 404 "$URL"
+wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-large-files.txt --hc 404 "$URL"
 |
 Large words
 wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-large-filwords --hc 404 "$URL"
