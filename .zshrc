@@ -10,13 +10,13 @@ function dockershellshhere() {
     docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} "$@"
 }
 ######
-alias drozer='docker run --rm --name drozer -it --network=host -v /home/yury/share:/tmp/share fsecurelabs/drozer'
+alias drozer='docker run --rm --name drozer -it --network=host -v $HOME/share:/tmp/share fsecurelabs/drozer'
 alias android-studio='sh /usr/local/android-studio/bin/studio.sh'
 alias apkid='docker run --rm -it rednaga:apkid'
 alias kali='docker start kali && sudo docker attach kali'
 ###########
-alias msfconsole='mkdir -p /home/yury/share/metasploit && docker run -it --rm --name msfconsole --network=host -v /home/yury/share/metasploit:/home/msf/.msf4 -p 8443-8500:8443-8500 metasploitframework/metasploit-framework ./msfconsole'
-alias msfvenom='mkdir -p /home/yury/share/metasploit && docker run -it --rm --name msfconsole --network=host -v /home/yury/share/metasploit:/home/msf/.msf4 -v /home/yury/share:/data metasploitframework/metasploit-framework ./msfvenom'
+alias msfconsole='mkdir -p $HOME/share/metasploit && docker run -it --rm --name msfconsole --network=host -v $HOME/share/metasploit:/home/msf/.msf4 -p 8443-8500:8443-8500 metasploitframework/metasploit-framework ./msfconsole'
+alias msfvenom='mkdir -p $HOME/share/metasploit && docker run -it --rm --name msfconsole --network=host -v $HOME/share/metasploit:/home/msf/.msf4 -v /home/yury/share:/data metasploitframework/metasploit-framework ./msfvenom'
 ###########
 alias impacket="docker run --rm -it impacket:latest"
 smbservehere2() {
@@ -30,8 +30,8 @@ smbservehere() {
     docker run --rm -it -p 445:445 -v "${PWD}:/tmp/serve" smbsevere:latest smbserver.py $sharename /tmp/serve
 }
 #########
-alias common="cat autotools/common.sh"
-alias revshells="cat autotools/revshells.sh"
+alias common="cat /opt/autotools/common.sh"
+alias revshells="cat /opt/autotools/revshells.sh"
 #########
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
