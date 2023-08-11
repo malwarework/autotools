@@ -10,6 +10,9 @@ This list of tools is used to automate activities during penetration testing
 - dirbuster
 - [gobuster](https://github.com/OJ/gobuster)
 
+### Windows IIS
+- [shortscan](https://github.com/bitquark/shortscan)
+
 ## code analyzing
 - [sourcemapper](https://github.com/denandz/sourcemapper)
 
