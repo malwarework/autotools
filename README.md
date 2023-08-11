@@ -12,6 +12,7 @@ This list of tools is used to automate activities during penetration testing
 
 ### Windows IIS
 - [shortscan](https://github.com/bitquark/shortscan)
+- [IIS-ShortName-Scanner](https://github.com/irsdl/IIS-ShortName-Scanner)
 
 ## code analyzing
 - [sourcemapper](https://github.com/denandz/sourcemapper)
