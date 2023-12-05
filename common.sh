@@ -204,3 +204,7 @@ find / -perm -g=s -type f 2>/dev/null
 #File capabilities (extended privileges -ep?)
 getcap -I / 2>/dev/null
 python -c 'import os; os.setuid(0); os.system("/bin/bash")'
+=============================================================================================================
+===nmap
+=============================================================================================================
+ports=$(nmap -p- --min-rate=1000 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//) && nmap -p$ports -sC -sV $IP
