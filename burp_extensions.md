@@ -1,0 +1,42 @@
+- [x] Additional scanner checks
+- [x] AutoRepeater
+- [x] Authorize
+- [x] Active Scan++
+- [x] Backslash Powered Scanner
+- [x] HTTPProxy Scanner
+- [x] JS Miner
+- [x] Scan manual insertion point
+- [x] Java Deserialization Scanner
+- [x] Colloborator Everywhere
+- [x] Retire.js
+- [x] Param Miner
+- [ ] Web Cache Deception Point
+- [x] Detect Dynamic JS
+- [x] HTTP Request Smuggler
+- [x] InQL - Introspection GraphQL Scanner
+- [ ] 403 Bypasser
+- [x] Addtitional CSRF Checks
+- [x] CORS*, Additional CORS Checks
+- [x] HTTP Method Discloser
+- [x] CSP AUditor
+- [ ] Turbo Intruder
+- [ ] Logger++
+- [x] J2EEScan
+- [x] CSRF Scanner
+- [ ] XSS Validator
+- [ ] Bypass WAF
+- [x] Wsdler
+- [x] Error Message Checks
+- [x] Freddy, Deserialization Bug Finder
+- [x] AWS Security Checks
+- [x] Upload Scanner
+- [x] Site Map Extractor
+- [ ] TplMap Extension
+- [ ] BIT/Mapper
+- [x] Interesting Files Scanner
+- [x] Source Mapper
+- [x] Proxy Action Rules
+- [x] Backup Finder
+- [ ] JWT Editor
+- [x] Session Timeout Test
+- [x] JS Link Finder
