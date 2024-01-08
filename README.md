@@ -15,7 +15,7 @@ This list of tools is used to automate activities during penetration testing
 - [IIS-ShortName-Scanner](https://github.com/irsdl/IIS-ShortName-Scanner)
 
 ## code analyzing
-- [sourcemapper](https://github.com/denandz/sourcemapper)
+- [sourcemapper](https://github.com/denandz/sourcemapper) to analyze map js-files
 
 ## SSL/TLS
 - [sslscan](https://github.com/rbsec/sslscan)
