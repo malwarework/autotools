@@ -32,6 +32,7 @@ smbservehere() {
 #########
 alias common="cat /opt/autotools/common.sh"
 alias revshells="cat /opt/autotools/revshells.sh"
+alias js="cat /opt/autotools/js.sh"
 #########
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
