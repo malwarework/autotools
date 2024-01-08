@@ -1,0 +1,12 @@
+- builtwith
+- cookie-editor
+- DotGit
+- Firefox Multi-Account Containers
+- FoxyProxy
+- HackTools
+- HackBar
+- Tamper Data for FF Quantum
+- Temp Mail - Disposable Temporary Email
+- User-Agent Switcher
+- Wappalyzer
+- Shodan
