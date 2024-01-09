@@ -14,6 +14,10 @@ This list of tools is used to automate activities during penetration testing
 - [shortscan](https://github.com/bitquark/shortscan)
 - [IIS-ShortName-Scanner](https://github.com/irsdl/IIS-ShortName-Scanner)
 
+## API testing
+- [arjun](https://github.com/s0md3v/Arjun.git)
+- [kiterunner](https://github.com/assetnote/kiterunner)
+
 ## code analyzing
 - [sourcemapper](https://github.com/denandz/sourcemapper) to analyze map js-files
 
