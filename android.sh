@@ -5,4 +5,5 @@ adb forward --remove-all
 adb shell settings put global http_proxy 127.0.0.1:8080
 adb reverse tcp:8080 tcp:8080
 adb reverse --remove-all
+adb shell settings put global http_proxy :0 
 ===============================
