@@ -42,4 +42,5 @@
 - [x] JS Link Finder
 - [ ] [GAP](https://github.com/xnl-h4ck3r/GAP-Burp-Extension)
 - [x] [JSpector](https://github.com/hisxo/JSpector)
-- [ ] Encode IP
+- [x] Encode IP
+- [x] [FlowMate](https://github.com/usdAG/FlowMate)
