@@ -298,5 +298,6 @@ alias js="cat /opt/autotools/js.sh"
 alias work="cd ~/SEC/WORK"
 #alias postman="/home/my/SEC/tools/Postman/Postman"
 alias android="cat /opt/autotools/android.sh"
+alias web="cat /opt/autotools/web.sh"
 ##############
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"

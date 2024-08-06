@@ -10,3 +10,4 @@
 - User-Agent Switcher
 - Wappalyzer
 - Shodan
+- [KNOXSS](https://addons.mozilla.org/en-US/firefox/user/12642480/)
