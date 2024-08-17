@@ -276,6 +276,8 @@ alias drozer='docker run --rm --name drozer -it --network=host -v $HOME/share:/t
 alias android-studio='sh /usr/local/android-studio/bin/studio.sh'
 #alias apkid='docker run --rm -it rednaga:apkid'
 alias kali='docker start kali && docker attach kali'
+alias xcat='docker run --rm -it tomforbes/xcat'
+alias cyberchef='docker run -it -p 8080:80 ghcr.io/gchq/cyberchef:latest'
 ###########
 #alias msfconsole='mkdir -p $HOME/share/metasploit && docker run -it --rm --name msfconsole --network=host -v $HOME/share/metasploit:/home/msf/.msf4 -p 8443-8500:8443-8500 metasploitframework/metasploit-framework ./msfconsole'
 #alias msfvenom='mkdir -p $HOME/share/metasploit && docker run -it --rm --name msfconsole --network=host -v $HOME/share/metasploit:/home/msf/.msf4 -v /home/yury/share:/data metasploitframework/metasploit-framework ./msfvenom'
