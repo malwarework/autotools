@@ -12,4 +12,4 @@
 5. The SP verifies the SAML assertion
 6. The user requests the resource
 7. The SP provides the resource
-![alt text](image-1.png)
+![saml](./images/saml.png)
