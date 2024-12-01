@@ -1,0 +1,6 @@
+# Race Condition
+## PHP Session Files and File Locks
+> Without going into too much detail, PHP stores the session information in session files on the web server's filesystem. As such, during the execution of PHP files, the web server needs to read and write to these files. To ensure that no undefined or unsafe state is reached, PHP uses file locks on session files whenever the session_start function is used to prevent multiple file writes at the same time due to multithreading. File locks are implemented on the operating system level, ensuring that only a single thread can access the file at any time. If a second thread attempts to access a file while another file holds the file lock, the second process has to wait until the first thread is finished. Thus, simultaneous file accesses are prevented. These file locks are held until the end of the PHP file, i.e., until the response is sent or until the session_write_close function is called.
+
+### Bypassing
+We can simply use different sessions in our exploit. Suppose we log in many times and record the session IDs. In that case, we can assign each request in our exploit different session IDs, meaning each thread accesses a different session file, and there is no need to wait for file locks, making simultaneous execution viable. Let us explore how to exploit the race condition above.
