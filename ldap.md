@@ -53,3 +53,10 @@ A search filter may consist of multiple components, each needing to be enclosed 
 |`postalCode`|Zip code|
 |`member`|Group Memberships|
 |`userPassword`|User password|
+
+## Data exfiltration
+Предположим, что запрос имеет следующую структуру `(&(uuid=<login>)(password=<password>))`
+
+Для перебора пароля можно использовать следующую нагрузку `login=a*`, что приводит к `(&(uuid=<login>)(password=a*))` и тд
+
+Также можно получить все атрибуты LDAP `login=)(|(description=*`, что приводит к `(&(uid=htb-stdnt)(|(description=*)(password=invalid)))`

